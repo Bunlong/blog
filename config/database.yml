@@ -1,0 +1,36 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+#
+# Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# ======================================================================================
+defaults: &defaults
+  username: root
+  password: Q1p2m3g4
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_unicode_ci
+
+development:
+  database: blog_development
+  host: localhost
+  <<: *defaults
+
+test:
+  database: blog_test
+  host: localhost
+  <<: *defaults
+
+staging:
+  database: blog_staging
+  host: localhost
+  <<: *defaults
+
+production:
+  database: blog_production
+  host: localhost
+  <<: *defaults
+# ======================================================================================

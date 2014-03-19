@@ -1,0 +1,2 @@
+1.      rails generate rspec:install
+2.      rake db:migrate db:test:prepare
