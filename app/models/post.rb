@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true, length: { minimum: 5  }
-  validates :content, presence: true, length: { minimum: 10  }
+  validates :title, length: { minimum: 100  }, presence: true, uniqueness: true
+  validates :body, length: { minimum: 200  }
+  validates :status, length: { minimum: 20  }, presence: true
 end

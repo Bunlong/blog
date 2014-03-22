@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319021114) do
+ActiveRecord::Schema.define(version: 20140322153242) do
 
   create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "title",      limit: 100, default: "", null: false
+    t.text     "body"
+    t.string   "status",     limit: 20,  default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
