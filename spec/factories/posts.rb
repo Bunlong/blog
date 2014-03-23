@@ -1,6 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :post do
+    title 'Ruby on Rails'
+    body 'Ruby on Rails is good'
+    status 'open'
+    category_id 1
   end
 end
