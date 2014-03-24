@@ -25,6 +25,10 @@ end
 
 describe Category, 'action' do
   before :each do
-    @category = Factory(:category)
+    @category = FactoryGirl.build(:category)
+  end
+
+  it 'add a new category' do
+    expect { @category.save }.to change { Category.count }.by(1)
   end
 end
