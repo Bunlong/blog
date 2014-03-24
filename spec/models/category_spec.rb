@@ -16,3 +16,9 @@ describe Category, 'association' do
   it { should have_many(:categorizations) }
   it { should have_many(:posts).through(:categorizations) }
 end
+
+describe Category, 'column_specification' do
+  it { should have_db_column(:name).of_type(:string).with_options(length: { minimum: 10, maximum: 50 }, presence: true, uniqueness: true) }
+  it { should have_db_column(:short_name).of_type(:string).with_options(length: { minimum: 10, maximum: 50 }, presence: true, uniqueness: true) }
+  it { should have_db_column(:description).of_type(:text).with_options(length: { maximum: 200 }) }
+end
