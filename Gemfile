@@ -14,11 +14,14 @@ gem 'json', '~> 1.8.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'olive', '~> 0.0.1'
+gem 'activenavbar', '~> 1.0.0'
 
 group :test, :development do
   gem 'quiet_assets'
   gem "rspec-rails", "~> 2.14.1"
   gem 'factory_girl_rails', '4.2.1'
+  gem 'database_cleaner', '~> 0.9.1'
   gem 'capybara', '~> 2.2.1'
   gem 'shoulda-matchers'
   gem 'pry'

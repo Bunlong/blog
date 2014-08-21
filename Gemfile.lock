@@ -13,6 +13,7 @@ GEM
     activemodel (4.0.2)
       activesupport (= 4.0.2)
       builder (~> 3.1.0)
+    activenavbar (1.0.0)
     activerecord (4.0.2)
       activemodel (= 4.0.2)
       activerecord-deprecated_finders (~> 1.0.2)
@@ -45,6 +46,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.3.6)
+    database_cleaner (0.9.1)
     debugger (1.6.6)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -85,6 +87,7 @@ GEM
     mysql2 (0.3.15)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    olive (0.0.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -167,15 +170,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activenavbar (~> 1.0.0)
   bootstrap-sass (~> 3.0.3.0)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
+  database_cleaner (~> 0.9.1)
   factory_girl_rails (= 4.2.1)
   haml-rails (~> 0.3.4)
   jbuilder (~> 1.2)
   jquery-rails
   json (~> 1.8.1)
   mysql2
+  olive (~> 0.0.1)
   pry
   pry-debugger
   quiet_assets

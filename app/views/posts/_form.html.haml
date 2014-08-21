@@ -1,0 +1,10 @@
+= form_for @post do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.label :body
+  = f.text_area :body, cols: 20, rows: 20
+  = f.label :status
+  = f.select :status, ['open', 'closed']
+  = f.label :category_id
+  = f.collection_select :category_id, @categories, :id, :name
+  = f.submit 'Save'

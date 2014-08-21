@@ -1,3 +1,19 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+.nav > li > a {
+  border-right: 1px solid #A80000;
+  padding: 5px;
+  color: #000;
+}
+
+.nav .active > a,
+.nav .active > a:focus {
+  color: red;
+}

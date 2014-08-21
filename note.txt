@@ -4,4 +4,72 @@ Rspec
 1.      rails generate rspec:install
 2.      bundle binstubs rspec-core
 3.      rake db:migrate db:test:prepare
+4.      rspec rspec/
+5.      mkdir spec/features spec/routing spec/support
+6.      copy require 'capybara/rspec' into spec_helper.rb
 =============================================
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : '605880479457471',
+        status : true,
+        cookie : true,
+        xfbml  : true,
+        oauth : true
+      });
+    };
+     
+    function post_on_wall() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          var opts = {
+            link : 'https://mysabay.com/',
+            name : 'JXII',
+            description : 'Memoir Item',
+            message : "300 Sabay Coin",
+            picture : 'http://jx.sabay.com.kh/wp-content/uploads/2014/03/memoir.png'
+          };
+     
+          FB.api('/me/feed', 'post', opts, function(response) {
+            if (!response || response.error) {
+              alert('Posting error occured, please try again!');
+            }
+            else {
+              console.log('Success - Post ID: ' + response.id);
+            }
+          });
+        }
+        else {
+          console.log('Not logged in');
+        }
+      }, { scope : 'publish_stream' });
+    }
+  </script>
+</head>
+<body>
+  <%= yield %>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=605880479457471";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div id="fb-root"></div>
+  
+  <div id="fb_div">
+    <h3>JXII Share</h3>
+    <input type="button" value="Share" onClick="post_on_wall();" />
+  </div>
+</body>
+</html>
