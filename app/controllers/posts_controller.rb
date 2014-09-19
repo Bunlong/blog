@@ -11,11 +11,30 @@ class PostsController < ApplicationController
   end
 
   def create
-    
+    @post = Post.new(post_params)
+    if @post.save
+      play_flash("Post created successfully")
+    else
+      play_flash("Post can't create")
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    @categories = Category.all
   end
 
   private
   def set_title
-    content_for :page_title, "Hello"
+    content_for :page_title, "Post"
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :status, :category_id)
+  end
+
+  def play_flash(message)
+    flash[:notice] = message
+    redirect_to :back
   end
 end

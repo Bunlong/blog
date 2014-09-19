@@ -10,4 +10,6 @@
     %ul.nav
       = navbar_link 'Post', root_path, 'active'
       = navbar_link 'Category', categories_path, 'active'
+    - if flash[:notice]
+      = flash[:notice]
     = yield

@@ -4,4 +4,5 @@
   - @posts.each do |post|
     %li
       = post.title
+      = link_to "Edit", edit_post_path(post)
 = link_to "Add New", new_post_path
